@@ -1,4 +1,4 @@
-git /*
+ /*
   EXAMPLE TASK:
     - Write an Airplane constructor that initializes `name` from an argument.
     - All airplanes built with Airplane should initialize with an `isFlying` of false.
@@ -41,43 +41,21 @@ Airplane.prototype.land = function () {
 */
 
 function Person(name, age) {
-	this.name = name;
-	this.age = age;
-	this.stomach = [];
-	this.toString = function(){
-		 return `${this.name} ${this.age}`;
-	}
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
-//Person.toString = function() {
-//
-// 
-//
-//}
-//
-////Person.prototype.eat = function(edible) {
-//	this.eat = [arrItem('edible')]
-//
-//}
-//
-//
-//
-//Person.prototype.poop = function() {
-//
-//  this.stomach = []
-//	
-//  return this.stomach;
-//
-//}
-//	
+Person.prototype.poop = function(edible) {
+  this.stomach = [0];
+};
 
-
-
-
-
-
-
-
+Person.prototype.eat = function(edible) {
+  this.stomach = [10];
+};
+Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
+};
 
 /*
   TASK 2
@@ -93,9 +71,16 @@ function Person(name, age) {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.tank = 0;
+  this.odometer = 0;
+  this.milesPerGallon = 20;
+  this.model = "BatMobile";
 }
+
+Car.prototype.fill = function() {
+  this.tank += 10;
+};
 
 /*
   TASK 3
