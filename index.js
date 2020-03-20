@@ -46,12 +46,14 @@
    this.stomach = [];
 
    Person.prototype.eat = function (someFood) {
-     this.stomach += someFood;
+     if (this.stomach.length < 10) {
+       this.stomach.push(someFood);
+     };
    };
 
    Person.prototype.poop = function (someFood) {
-     this.stomach[11];
-   };n
+     this.stomach = [];
+   };
 
    Person.prototype.toString = function () {
      return `${this.name}, ${this.age}`;
@@ -90,15 +92,18 @@
          + Should return a string "Playing with x", x being the favorite toy.
  */
  function Baby(name, age, favoriteToy) {
-   this.name = name;
-   this.age = age;
-   this.child = Object.create.Person()
+   
+   Person.call(this, name, age),
+     this.favoriteToy = favoriteToy;
  }
+Baby.prototype = Object.create(Person.prototype) 
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`
+}
 
 
 
 
- }
 
  /* 
    TASK 4
